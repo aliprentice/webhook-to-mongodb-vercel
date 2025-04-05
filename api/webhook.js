@@ -9,7 +9,7 @@ async function connectToDatabase(uri) {
   if (cachedDb) return cachedDb;
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   await client.connect();
-  const db = client.db("myDatabaseName"); // Change to your database name
+  const db = client.db("flights1"); // Change to your database name
   cachedDb = db;
   return db;
 }
@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
       console.log("Incoming webhook data:", requestData);
 
       // Connect to MongoDB using the connection string stored in environment variables
-      const db = await connectToDatabase(process.env.MONGODB_URI);
+      const db = await mongodb+srv://aprentice:<db_password>@cluster0.uarhn3a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0(process.env.MONGODB_URI);
       
       // Insert the received data into a collection (change 'myCollection' as needed)
       const result = await db.collection("myCollection").insertOne(requestData);
