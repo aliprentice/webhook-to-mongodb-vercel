@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
       console.log("Incoming webhook data:", requestData);
 
       // Connect to MongoDB using the connection string stored in environment variables
-      const db = await mongodb+srv://aprentice:<db_password>@cluster0.uarhn3a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0(process.env.MONGODB_URI);
+      const db = await mongodb+srv://aprentice:<dEJcrQUmEodrwgeq>@cluster0.uarhn3a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0(process.env.MONGODB_URI);
       
       // Insert the received data into a collection (change 'myCollection' as needed)
       const result = await db.collection("myCollection").insertOne(requestData);
